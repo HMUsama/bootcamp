@@ -24,7 +24,7 @@ hundleSubmit=(e)=>{
 
   render() {
     const {authError,authStd} = this.props;
-    // console.log("A***",authStd.uid)
+    console.log("Student***",authStd)
     if(authStd.uid) return <Redirect to='/'/>
     return (
         <div className="container">

@@ -7,27 +7,24 @@ import CpSignedOutLinks from './campany/CpSignOutLinks'
 import CpSignedInLinks from './campany/CpSignInLinks'
 import AdSignedOutLinks from './admin/AdSignInLinks'
 import AdSignedInLinks from './admin/AdSignOutLinks'
+import authReducesCp from '../../store/reducers/authReducerCp';
 
 
 
 const Navbar = (props) =>{
     const { authStd,authCp,profile } = props;
-    // console.log("companies",authStd)
-    // console.log("student",authCp.dispalyName)
-
+    console.log("authCp",authCp)
+    console.log("authStd",authStd)
+    // debugger;
     const links= authStd.uid ?<StdSignedInLinks profile={profile}/>
-                        :<StdSignedOutLinks/>
-
-
-    // <CpSignedInLinks profile={profile}/>
-    //                         :<CpSignedOutLinks/> 
-    //                     &&
+                        :null  &&
+                authCp.uid ?<CpSignedInLinks profile={profile}/>
+                :<CpSignedOutLinks/>
                         
 
     return(
         <nav className="nav-wrapper green darken-2">
-        <Link to='/' className="brand-logo left">Campus </Link>
-        {/* {authCp.dispalyName==undefined ? <CpSignedInLinks profile={profile}/>:null } */}
+        {/* <Link to='/' className="brand-logo left">Campus </Link> */}
         {links}
         </nav>
     )

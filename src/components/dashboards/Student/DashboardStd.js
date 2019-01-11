@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {compose,combineReducers,createStore } from 'redux'
+import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
+import JobsList from './JobsList'
 
 
 class Dashboard extends Component {
     
     render() {
-        console.log("Jobs___",this.props)
-        // const {  } = this.props;
+        const { companyJobs } = this.props;
+        console.log("Jobs___",companyJobs)
 
       return (
         <div>
-            <h1>adasd
-            </h1>
-           
+            <JobsList companyJobs={companyJobs}/>
         </div>
       );
     }
@@ -23,7 +22,7 @@ class Dashboard extends Component {
   const mapStateToProps = (state) => {
       console.log("Dashboard",state);
       return{
-        companyJobs: state.createJobsCp.jobsDetails
+        companyJobs: state.firestore.ordered.companyJobs
     }
 }
 

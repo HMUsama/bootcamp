@@ -10,6 +10,7 @@ export const studentSignUp = (newStudent) =>{
                 email    : newStudent.email,
                 firstName: newStudent.firstName,
                 lastName:  newStudent.lastName,
+                designation: 'student',
                 initails:  newStudent.firstName[0] + newStudent.lastName[0]
             })
         }).then(() => {
@@ -22,6 +23,7 @@ export const studentSignUp = (newStudent) =>{
 
 export const signInStd = (credentails) =>{
     return (dispatch,getState,{getFirebase})=>{
+        console.log("Credentail STD",credentails);
         const firebase=getFirebase();
         firebase.auth().signInWithEmailAndPassword(
             credentails.email,

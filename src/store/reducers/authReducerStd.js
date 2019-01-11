@@ -13,7 +13,7 @@ const authReducesStd =( state = initState,action )=>{
         console.log("Login_SuccesFull**authReduces**")
         return{
             ...state,
-            authError:null
+            authError:null,
         }
 
         case "LogOut_SuccessFull":

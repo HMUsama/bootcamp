@@ -8,6 +8,7 @@ export const companiesSignup = (newCampany) =>{
         ).then((res)=>{
             return firestore.collection("company").doc(res.user.uid).set({
                 email    : newCampany.email,
+                designation: 'company',
                 firstName: newCampany.firstName,
                 lastName:  newCampany.lastName,
                 // initails:  newCampany.firstName[0] + newUser.lastName[0]
@@ -26,7 +27,7 @@ export const companiesSignup = (newCampany) =>{
 export const companiesLogin = (credentails) =>{
     return (dispatch,getState,{getFirebase})=>{
         const firebase=getFirebase();
-        console.log("creadentail",credentails)
+        console.log("creadentail CP",credentails)
         firebase.auth().signInWithEmailAndPassword(
             credentails.email,
             credentails.password,

@@ -26,6 +26,7 @@ hundleSubmit=(e)=>{
 
   render() {
     const {authError,authCp} = this.props;
+    console.log("Company***",authCp)
     if(authCp.uid) return <Redirect to='/'/>
     return (
         <div className="container">

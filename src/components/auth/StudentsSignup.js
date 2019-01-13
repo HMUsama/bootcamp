@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {studentSignUp} from '../../store/actions/authActionsStd'
 import { Redirect } from 'react-router-dom'
-import { debug } from 'util';
 
 class StudentSignUp extends Component {
 
@@ -24,7 +23,8 @@ hundleSubmit=(e)=>{
 }
 
   render() {
-      const {authError,authStd} = this.props;
+      const {authError,authStd,student} = this.props;
+      console.log("Student***",student)
     //   console.log("A1***",authStd.uid)
       if(authStd.uid) return <Redirect to='/'/>
     return (
@@ -67,7 +67,8 @@ hundleSubmit=(e)=>{
 const mapStateToProps =(state)=> {
     return{
         authStd: state.firebase.auth,
-        authError: state.authStd.authError
+        authError: state.authStd.authErrorStd_signup,
+        student  : state.authStd.student
     }
 }
 const mapDispatchToProps =(dispatch)=> {

@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 
-const JobsDetails =(props)=>{
+const StdResume =(props)=>{
     // const id=props.match.params.id;
     // console.log("JOBS DETAILS",props)
-    const { companyJob } = props;
-    console.log("JOBS DETAILS 1111",companyJob)
-    if(companyJob){
+    const { studentDetails } = props;
+    console.log("JOBS DETAILS 1111",studentDetails)
+    if(studentDetails){
         return(
             <div className="container section project-details">
-                <div className="card z-depth-0">
+                {/* <div className="card z-depth-0">
                     <div>
                         <div className="card-content">
                         <span className="card-title">Industry:{companyJob.industry}</span>
@@ -27,40 +27,41 @@ const JobsDetails =(props)=>{
                         </button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         )
     } else{
         return(
             <div className="container center">
             
-                <div className="preloader-wrapper big active">
-                    <div className="spinner-layer spinner-blue">
-                        <div className="circle-clipper left">
-                        <div className="circle"></div>
-                        </div><div className="gap-patch">
-                        <div className="circle"></div>
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue">
+                        <div class="circle-clipper left">
+                        <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
                         </div><div class="circle-clipper right">
-                        <div className="circle"></div>
+                        <div class="circle"></div>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+
 }
 const mapStateToProps = (state,ownProps) => {
     // console.log("Project Deatails",state);
     const id=ownProps.match.params.id;
-    const companyJobs=state.firestore.data.companyJobs;
-    const companyJob=companyJobs ? companyJobs[id] :null
+    const studentDetails=state.firestore.data.studentDetails;
+    const studentDetail=studentDetails ? studentDetails[id] :null
     return{
-        companyJob:companyJob
+        studentDetails:studentDetail
     }
 }
 
 export default compose(connect(mapStateToProps),
                 firestoreConnect ([
-                {collection: "companyJobs"}
+                {collection: "StudentDetails"}
                 ])
-                )(JobsDetails)
+                )(StdResume)

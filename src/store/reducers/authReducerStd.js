@@ -7,32 +7,37 @@ const authReducesStd =( state = initState,action )=>{
             console.log("Login_Error**authReduces**")
         return{
             ...state,
-            authError:'Login_failed'
+            authErrorStd_login:'Login_failed'
         }
         case "Login_SuccessFull":
         console.log("Login_SuccesFull**authReduces**")
         return{
+            student:'student',
             ...state,
-            authError:null,
+            authErrorStd_signup:null,
         }
 
         case "LogOut_SuccessFull":
         console.log("LogOut_SuccesFull**authReduces**")
-        return state;
+        return {
+            student:false,
+            state,
+        }
 
 
 
         case 'SIGNUP_SUCCESS' :
             console.log('signup_successfull**authReduces**');
         return{
+            student:'student',
             ...state,
-            authError:null
+            authErrorStd_signup:null,
         }
         case 'SIGNUP_ERROR' :
             console.log('signup_Error**authReduces**');
         return{
             ...state,
-            authError:action.err.message
+            authErrorStd_signup:action.err.message
         }
         default:
         return state     

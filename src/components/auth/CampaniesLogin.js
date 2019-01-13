@@ -6,12 +6,10 @@ import { Redirect } from 'react-router-dom'
 
 
 class CompaniesLogin extends Component {
-    // constructor(){
         state = {
             email:'',
             password:'',
         }    
-    // }
 
 hundleChange=(e)=>{
     this.setState({
@@ -21,13 +19,14 @@ hundleChange=(e)=>{
 hundleSubmit=(e)=>{
     e.preventDefault();
     this.props.companiesLogin(this.state);
-    // this.props.history('/');
 }
 
   render() {
-    const {authError,authCp} = this.props;
-    console.log("Company***",authCp)
-    if(authCp.uid) return <Redirect to='/'/>
+    const {authError,authCp,company} = this.props;
+    console.log("CompanyLog***",company);
+    if(company) return <Redirect to='/createjobs'/>
+    // if(company) return <Redirect to='/createjobs'/>
+    
     return (
         <div className="container">
             <form onSubmit={this.hundleSubmit} className="gray">
@@ -47,7 +46,10 @@ hundleSubmit=(e)=>{
             <Link to='/companiessignup' className=" lighten-1 ">
             Create a new Account</Link>
                 <div className="red-text center">
-                    {authError ? <p>{authError}</p> : null}
+                    {authError ? <p>
+                    {
+                      authError  
+                    }</p> : null}
                 </div>
             </div>
             </form>
@@ -58,9 +60,11 @@ hundleSubmit=(e)=>{
 
 
 const mapStateToProps = (state) => {
+    const company= company ? true :false
     return{
         authError: state.authCp.authError,
-        authCp:    state.firebase.auth
+        authCp:    state.firebase.auth,
+        company  : state.authCp.company
     }
 }
 const mapDispatchToProps=(dispatch)=>{

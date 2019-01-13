@@ -12,28 +12,34 @@ import authReducesCp from '../../store/reducers/authReducerCp';
 
 
 const Navbar = (props) =>{
-    const { authStd,authCp,profile } = props;
-    console.log("authCp",authCp)
-    console.log("authStd",authStd)
-    // debugger;
-    const links= authStd.uid ?<StdSignedInLinks profile={profile}/>
-                        :null  &&
-                authCp.uid ?<CpSignedInLinks profile={profile}/>
-                :<CpSignedOutLinks/>
-                        
-
+    const { student,company,profile } = props;
+    // console.log("Props",props)
+    // console.log("authCp",authCp)
+    // console.log("profile",profile)
+    // console.log("student Nav **",student)
+    // console.log("company **",company)
+    
+    // const link1= company ? <CpSignedInLinks/>:<CpSignedOutLinks/>
+    // const link1= company ? <CpSignedOutLinks/>:<CpSignedInLinks/>
+    const link1= student  ? <StdSignedInLinks profile={profile}/>:<StdSignedOutLinks/>
+    // const link2= company  ? <CpSignedOutLinks/>: <CpSignedInLinks/>
+        // student == true ? <StdSignedInLinks profile={profile}/>:<CpSignedOutLinks/>
     return(
         <nav className="nav-wrapper green darken-2">
         {/* <Link to='/' className="brand-logo left">Campus </Link> */}
-        {links}
+        {link1}
+        {/* {link2} */}
         </nav>
     )
 }
 
 const mapStateToProps=(state)=>{
-
-    // console.log(" state navbar 1 ***",state);
+    const student=student ? true :false
+    const company=company ? true :false
     return{
+        company  : state.authCp.company,
+        student  : state.authStd.student,
+
         authCp:    state.firebase.auth,
         authStd:    state.firebase.auth,
         authAd:    state.firebase.auth,
@@ -42,3 +48,9 @@ const mapStateToProps=(state)=>{
 }
 
 export default connect(mapStateToProps)(Navbar);
+
+// export default compose(connect(mapStateToProps),
+//                 firestoreConnect ([
+//                 {collection: "companyJobs"}
+//                 ])
+//                 )(Dashboard)

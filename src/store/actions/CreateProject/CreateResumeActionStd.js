@@ -8,10 +8,10 @@ export const createResume = (studendDetails) =>{
         firestore.collection("StudentDetails").add({
 
             ...studendDetails,
-            name:studendDetails.name,
-            email:studendDetails.email,
-            number:studendDetails.number,
-            message:studendDetails.message,
+            // name:studendDetails.name,
+            // email:studendDetails.email,
+            // number:studendDetails.number,
+            // message:studendDetails.message,
             
         }).then(() => {
             dispatch({ type:'CREATE_DETAILS_SUCCESS',studendDetails })

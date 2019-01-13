@@ -23,9 +23,12 @@ hundleSubmit=(e)=>{
 }
 
   render() {
-    const {authError,authStd} = this.props;
-    console.log("Student***",authStd)
-    if(authStd.uid) return <Redirect to='/'/>
+    const {authError,authStd,student} = this.props;
+    // const check = [...authStd.uid,student ]
+    console.log("StudentLog***")
+    if( authStd.uid ) return <Redirect to='/dashboard'/>
+ 
+    
     return (
         <div className="container">
             <form onSubmit={this.hundleSubmit} className="gray">
@@ -45,7 +48,9 @@ hundleSubmit=(e)=>{
             <Link to='/studentsignup' className=" lighten-1 ">
             Create a new Account</Link>
                 <div className="red-text center">
-                    {authError ? <h5>{authError}</h5> : null}
+                    {authError ? <h5>
+                    {authError}
+                    </h5> : null}
                 </div>
             </div>
             </form>
@@ -56,9 +61,11 @@ hundleSubmit=(e)=>{
 
 
 const mapStateToProps = (state) => {
+    const student= student ? true :false
     return{
         authStd:   state.firebase.auth,
-        authError: state.authStd.authError,
+        authError: state.authStd.authErrorStd_login,
+        student  : state.authStd.student,
     }
 }
 const mapDispatchToProps=(dispatch)=>{

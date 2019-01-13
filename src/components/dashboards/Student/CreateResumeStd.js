@@ -26,9 +26,9 @@ class CreateResume extends Component {
 
 
     render() {
-        const {authError} = this.props;
+        const {authError,authStd} = this.props;
         // console.log("A***",authStd);
-        // if(authStd.uid) return <Redirect to='/'/>
+        // if(authStd.uid) return <Redirect to='/studentsignin'/>
       return (
         <div className="container">
         <form onSubmit={this.hundleSubmit} className="gray">

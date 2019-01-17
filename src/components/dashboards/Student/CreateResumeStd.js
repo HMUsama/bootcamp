@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {createResume} from '../../../store/actions/CreateProject/CreateResumeActionStd'
 // import {signInStd} from '../../../store/actions/authActionsStd'
 import { Redirect } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 class CreateResume extends Component {
     // constructor(props){
@@ -60,6 +61,12 @@ class CreateResume extends Component {
         </div>
         <br/>
             <center>
+                <Link to={'./dashboardStd'}>
+                <button className="btn waves-effect " 
+                     name="action">Cencel
+                    {/* <i className="material-icons right">send</i> */}
+                </button>
+                </Link>
                 <button className="btn waves-effect waves-light " 
                     type="submit" name="action">Submit
                     <i className="material-icons right">send</i>

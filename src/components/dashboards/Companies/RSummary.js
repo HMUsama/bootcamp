@@ -1,22 +1,23 @@
 import React from 'react'
 
-const RSummary =({studentDetails})=>{
-console.log("Summary",studentDetails)
 // debugger;
+const RSummary = ({Details}) =>{
+// console.log("Summary**",Details)
     return(
         <div>
-            {/* {
-            studentDetails && studentDetails.map( item =>{
+            {
+            Details && Details.map( (item,index ) =>{
+                // console.log("item",item)
                 return(
-                 <div className="card z-depth-0 project-summary">
+                 <div className="card z-depth-0 project-summary"key={index}>
                     <div className="card-content black-text text-darken-3">
-                     <span className="card-title">{item.jobTitle} </span>
-                     <p className="black-text">{item.message}</p>
+                     <span className="card-title">{item.email} </span>
+                     <p className="black-text">{item.number}</p>
                     </div>
                  </div>
                 )
             })
-        } */}
+        }
         </div>
     )
 }

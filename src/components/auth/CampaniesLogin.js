@@ -24,7 +24,7 @@ hundleSubmit=(e)=>{
   render() {
     const {authError,authCp,company} = this.props;
     console.log("CompanyLog***",company);
-    if(company) return <Redirect to='/createjobs'/>
+    if(authCp.uid) return <Redirect to='/dashboardCp'/>
     // if(company) return <Redirect to='/createjobs'/>
     
     return (

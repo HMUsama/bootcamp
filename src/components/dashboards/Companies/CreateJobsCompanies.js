@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {createJobsCp} from '../../../store/actions/CreateProject/CreateJobsActionCp'
 import { Redirect } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 class CreateJobsCp extends Component {
     // constructor(props){
@@ -67,6 +68,12 @@ class CreateJobsCp extends Component {
         </div>
         <br/>
             <center>
+                <Link to={'./dashboardCp'}>
+                <button className="btn waves-effect " 
+                     name="action">Cencel
+                    {/* <i className="material-icons right">send</i> */}
+                </button>
+                </Link>
                 <button className="btn waves-effect waves-light " 
                     type="submit" name="action">Submit
                     <i className="material-icons right">send</i>

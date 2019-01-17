@@ -1,62 +1,68 @@
-import React from 'react'
+// import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 
-const StdResume =(props)=>{
-    // const id=props.match.params.id;
-    // console.log("JOBS DETAILS",props)
-    const { studentDetails } = props;
-    console.log("JOBS DETAILS 1111",studentDetails)
-    if(studentDetails){
-        return(
-            <div className="container section project-details">
-                {/* <div className="card z-depth-0">
-                    <div>
-                        <div className="card-content">
-                        <span className="card-title">Industry:{companyJob.industry}</span>
-                       <p>Job Title:{companyJob.jobTitle}</p>
-                       <p>Number:{companyJob.number}</p>
-                       <p>{companyJob.message}</p>
+class StdResume extends Component {
+    // constructor(props){
+    //     super(props)
+    //     this.state={
+    //         Details:this.props,
+    //     }
+    // }
+   render(){
+    const { Details } = this.props;
+    // console.log("Details DETAILS 1111",Details)
+        if(Details){
+                    return(
+                        <div className="container section project-details">
+                            <div className="card z-depth-0">
+                                <div>
+                                    <div className="card-content">
+                                    <span className="card-title">{Details.id}</span>
+                                   <p>Job Title:{Details}</p>
+                                   <p>Number:{Details.number}</p>
+                                   <p>skills{Details.message}</p>
+                                    </div>
+                                    <div className="card-action gret lighten-4 black-text">
+                                    <p>Location:{}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="card-action gret lighten-4 black-text">
-                        <p>Location:{companyJob.location}</p>
-                        <button className="btn waves-effect waves-light ">
-                            Submit
-                            <i className="material-icons right">send</i>
-                        </button>
-                        </div>
-                    </div>
-                </div> */}
-            </div>
-        )
-    } else{
+                    )
+                } else{
         return(
             <div className="container center">
-            
-                <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-blue">
-                        <div class="circle-clipper left">
-                        <div class="circle"></div>
-                        </div><div class="gap-patch">
-                        <div class="circle"></div>
-                        </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
+            <div className="preloader-wrapper small active">
+            <div className="spinner-layer spinner-green-only">
+              <div className="circle-clipper left">
+                <div className="circle"></div>
+              </div><div className="gap-patch">
+                <div className="circle"></div>
+              </div><div className="circle-clipper right">
+                <div className="circle"></div>
+              </div>
             </div>
-        )
+          </div>
+          </div>
+       )
+     }
     }
-
 }
 const mapStateToProps = (state,ownProps) => {
-    // console.log("Project Deatails",state);
-    const id=ownProps.match.params.id;
-    const studentDetails=state.firestore.data.studentDetails;
-    const studentDetail=studentDetails ? studentDetails[id] :null
+    // debugger
+    console.log("  state",state);
+    // console.log("  ownProps",ownProps);
+    const id= ownProps.match.params.id;
+    // console.log("  ID**",id);
+    const Details= state.firestore.data.Details;
+    const Detail= Details ? Details[id] :null
+    // console.log("Details Map",Detail)
     return{
-        studentDetails:studentDetail
+        Details:Detail
+        // Details:state
     }
 }
 

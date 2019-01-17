@@ -8,7 +8,11 @@ import {firestoreReducer}  from 'redux-firestore'
 import createResumeReducerStd from './CreateResumeReducerStd'
 import CreateJobsReducerCp  from './CreateJobsReducerCp'
 
+import UpdateDeleteReducerCp from './Admin/UpdateDeleteReducerCp'
+
 const rootReducers  = combineReducers({
+
+    updateDeleteJob :      UpdateDeleteReducerCp,
     
     createResumeStd: createResumeReducerStd,
     createJobsCp:    CreateJobsReducerCp,

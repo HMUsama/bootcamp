@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JobSummary =({companyJobs})=>{
+const JobSummary = ({companyJobs}) =>{
 console.log("Summary",companyJobs)
 // debugger;
     return(

@@ -26,7 +26,7 @@ hundleSubmit=(e)=>{
       const {authError,authStd,student} = this.props;
       console.log("Student***",student)
     //   console.log("A1***",authStd.uid)
-      if(authStd.uid) return <Redirect to='/'/>
+      if(authStd.uid) return <Redirect to='/dashboardStd'/>
     return (
         <div className="container">
         <form onSubmit={this.hundleSubmit} className="gray">

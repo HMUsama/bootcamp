@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {adminLognin} from '../../store/actions/authActionsAd'
+import { Redirect } from 'react-router-dom'
 
 class AdminLognin extends Component {
     // constructor(){
@@ -22,6 +23,7 @@ hundleSubmit=(e)=>{
 
   render() {
     const{authError,authAd} = this.props;
+    if(authAd.uid) return <Redirect to='/dashboardAd'/>
     return (
         <div className="container">
             <form onSubmit={this.hundleSubmit} className="gray">
@@ -50,7 +52,7 @@ hundleSubmit=(e)=>{
 
 const mapStateToProps =(state)=> {
     return{
-        authAd: state.firebase.authAd,
+        authAd: state.firebase.auth,
         authError: state.authAd.authError
     }
 }

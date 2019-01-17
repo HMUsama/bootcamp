@@ -1,36 +1,55 @@
-import React from 'react'
+// import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 
-const JobsDetails =(props)=>{
-    // const id=props.match.params.id;
-    // console.log("JOBS DETAILS",props)
-    const { companyJob } = props;
-    console.log("JOBS DETAILS 1111",companyJob)
-    if(companyJob){
-        return(
-            <div className="container section project-details">
-                <div className="card z-depth-0">
-                    <div>
-                        <div className="card-content">
-                        <span className="card-title">Industry:{companyJob.industry}</span>
-                       <p>Job Title:{companyJob.jobTitle}</p>
-                       <p>Number:{companyJob.number}</p>
-                       <p>{companyJob.message}</p>
+class JobsDetails extends Component {
+    constructor(){
+        super()
+        this.state={
+            companyJob:this.props,
+            data:[ { isFavourite:true } ]
+        }
+    }
+    fav(index){
+        console.log(index);
+        const { data } = this.state;
+        //   data[index].isFavourite = !data[index].isFavourite;
+          data.isFavourite = !data.isFavourite;
+          this.setState({
+          data,
+        })
+      }
+   render(){
+    const { companyJob } =this. props;
+    const { data } = this.state;
+    // console.log("companyJob DETAILS 1111",companyJob)
+        if(companyJob){
+                    return(
+                        <div className="container section project-details">
+                            <div className="card z-depth-0">
+                                <div>
+                                    <div className="card-content">
+                                    <span className="card-title">Industry:{companyJob.industry}</span>
+                                   <p>Job Title:{companyJob.jobTitle}</p>
+                                   <p>Number:{companyJob.number}</p>
+                                   <p>{companyJob.message}</p>
+                                    </div>
+                                    <div className="card-action gret lighten-4 black-text">
+                                    <p>Location:{companyJob.location}</p>
+                                    <button className="btn waves-effect waves-light "
+                                    onClick={  ()=>{this.fav()}  }
+                                    >
+                                    { data.isFavourite ? 'Submit' : 'UnSubmit'}
+                                        <i className="material-icons right">send</i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="card-action gret lighten-4 black-text">
-                        <p>Location:{companyJob.location}</p>
-                        <button className="btn waves-effect waves-light ">
-                            Submit
-                            <i className="material-icons right">send</i>
-                        </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    } else{
+                    )
+                } else{
         return(
             <div className="container center">
             
@@ -46,14 +65,16 @@ const JobsDetails =(props)=>{
                     </div>
                 </div>
             </div>
-        )
+       )
+     }
     }
 }
 const mapStateToProps = (state,ownProps) => {
-    // console.log("Project Deatails",state);
-    const id=ownProps.match.params.id;
-    const companyJobs=state.firestore.data.companyJobs;
-    const companyJob=companyJobs ? companyJobs[id] :null
+    // debugger
+    console.log(" Deatails ownProps",ownProps);
+    const id= ownProps.match.params.id;
+    const companyJobs= state.firestore.data.companyJobs;
+    const companyJob= companyJobs ? companyJobs[id] :null
     return{
         companyJob:companyJob
     }

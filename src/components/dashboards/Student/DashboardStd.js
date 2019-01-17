@@ -4,15 +4,16 @@ import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import JobsList from './JobsList'
 import { Link} from 'react-router-dom'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
     
     render() {
         // debugger
-        const { companyJobs } = this.props;
+        const { companyJobs,authStd } = this.props;
         console.log("Dashboard_Std",companyJobs)
-        // if(authStd.uid) return <Redirect to='/studentsignin'/>
+        console.log("authStd",authStd)
+        // if(authStd.uid) return <Redirect to='/dashboardStd'/>
       return (
         <div>
             <Link to={'/studentResume'}>Create Resume </Link>
@@ -23,14 +24,13 @@ class Dashboard extends Component {
   }
 
   const mapStateToProps = (state) => {
-    //   console.log("Dashboard",state);
+      console.log("Dashboard",state.firestore.ordered);
       return{
         authStd:   state.firebase.auth,
         companyJobs: state.firestore.ordered.companyJobs
     }
 }
 
-// export default connect(mapStateToProps)(Dashboard)
 
 export default compose(connect(mapStateToProps),
                 firestoreConnect ([

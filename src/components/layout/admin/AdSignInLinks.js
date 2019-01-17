@@ -11,7 +11,7 @@ const AdSignedInLinks = (props) => {
         <li><a onClick={props.signOutAd}>Log Out</a></li>
         
         <li>
-            {/* <NavLink to='/dashbord' 
+            {/* <NavLink to='/dashboardStd' 
             className="btn btn-floating black lightten-1">
             {props.profile.initails}
         </NavLink> */}

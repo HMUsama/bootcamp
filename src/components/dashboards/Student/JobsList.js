@@ -19,26 +19,29 @@ import JobSummary from './JobsSummary'
 //             })
 //         }
 //         </div>
+
 //     )
 // }
 
 const JobsList =({companyJobs})=>{
-    debugger;
+    console.log("summary in jobs",companyJobs)
+    // debugger;
     if(companyJobs){
-        return(
-            <div>
-                    {
-                        companyJobs && companyJobs.map( (jobslist,index) =>{
-                            return(
-                                <div className="project-list sector"key={index}>
-                                <Link to={'/job/'+jobslist.id}>
-                                <JobSummary companyJobs = {companyJobs} key={jobslist.id}/>
-                                </Link>
-                                </div>
-                            )
-                        })
-                    }
-            </div>
+    return(
+        <div>
+        {
+            companyJobs && companyJobs.map( (jobslist,index) =>{
+                console.log("``````````",jobslist)
+                return(
+                    <div className="project-list sector"key={index}>
+                    <Link to={'/job/'+jobslist.id}>
+                    <JobSummary companyJobs = {companyJobs} key={jobslist.id}/>
+                    </Link>
+                    </div>
+                )
+            })
+        }
+        </div>
         )
     } else{
         return(

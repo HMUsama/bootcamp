@@ -24,7 +24,7 @@ hundleSubmit=(e)=>{
 
   render() {
     const {authError,authCp} = this.props;
-    if(authCp.uid) return <Redirect to='/'/>
+    if(authCp.uid) return <Redirect to='/dashboardCp'/>
     return (
         <div className="container">
         <form onSubmit={this.hundleSubmit} className="gray">

@@ -15,9 +15,6 @@ class CompanyDetails extends Component {
             // data:[ { isFavourite:true } ]
         }
     }
-    // updateForm(){
-         
-    //   }
    render(){
     //    debugger
     const { ID } =this.props;
@@ -37,7 +34,7 @@ class CompanyDetails extends Component {
                             </div>
                             <div className="card-action gret lighten-4 black-text">
                             <p>Location:{CompanyJob.location}</p>
-                            <Link to={'/edit/'+ID}>
+                            <Link to={'/editCp/'+ID}>
                             <button className="btn waves-effect waves-light "
                             // onClick={  ()=>{this.updateForm()}  }
                             >Update

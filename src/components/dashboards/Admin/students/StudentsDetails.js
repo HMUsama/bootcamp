@@ -4,27 +4,19 @@ import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import Loader from '../Loder'
+import { Link} from 'react-router-dom'
 
 class StudentDetails extends Component {
     constructor(){
         super()
         this.state={
-            // companyJobs:this.props,
-            data:[ { isFavourite:true } ]
         }
     }
-    fav(index){
-        const { data } = this.state;
-        //   data[index].isFavourite = !data[index].isFavourite;
-          data.isFavourite = !data.isFavourite;
-          this.setState({
-          data,
-        })
-      }
+
    render(){
     //    debugger
+    const { ID } =this.props;
     const { StudentDetail } =this. props;
-    const { data } = this.state;
     if(StudentDetail){
         return(
             <div>
@@ -40,12 +32,12 @@ class StudentDetails extends Component {
                             </div>
                             <div className="card-action gret lighten-4 black-text">
                             <p>Location:{StudentDetail.location}</p>
+                            <Link to={'/editStd/'+ID}>
                             <button className="btn waves-effect waves-light "
-                            onClick={  ()=>{this.fav()}  }
-                            >
-                            { data.isFavourite ? 'Edit' : 'Update'}
-                                <i className="material-icons right">send</i>
+                            >Edit
+                            <i className="material-icons right">send</i>
                             </button>
+                            </Link>
                             </div>
                         </div>
                     </div>
@@ -64,7 +56,8 @@ const mapStateToProps = (state,ownProps) => {
     const StudentDetails= state.firestore.data.StudentDetails;
     const StudentDetail= StudentDetails ? StudentDetails[id] :null
     return{
-        StudentDetail:StudentDetail
+        StudentDetail:StudentDetail,
+        ID:id
     }
 }
 

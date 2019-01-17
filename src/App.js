@@ -23,9 +23,11 @@ import StdResume from './components/dashboards/Companies/StdResume'
 import DashboardAd from './components/dashboards/Admin/DashboardAdmin'
 import CompaniesList from './components/dashboards/Admin/companies/CompaniesList'
 import CompanyDetails from './components/dashboards/Admin/companies/CompaniesDetails'
+import DeleteEditCp from './components/dashboards/Admin/companies/DeleteEditCp'
+
 import StudentsList from './components/dashboards/Admin/students/StudentsList'
 import StudentDetails from './components/dashboards/Admin/students/StudentsDetails'
-import DeleteEditCp from './components/dashboards/Admin/companies/DeleteEditCp'
+import DeleteEditStd from './components/dashboards/Admin/students/DeleteEditStd'
 
 class App extends Component {
   render() {
@@ -40,12 +42,13 @@ class App extends Component {
            {/* Company Screen*/}
           <Route exact path="/companiesList/:id"   component={CompaniesList}/>
           <Route exact path="/company/:id"   component={CompanyDetails}/>
-
-          <Route exact path="/edit/:id"   component={DeleteEditCp}/>
+          <Route exact path="/editCp/:id"   component={DeleteEditCp}/>
 
           {/* Student Screen*/}
           <Route exact path="/studentsList/:id"   component={StudentsList}/>
           <Route exact path="/student/:id"   component={StudentDetails}/>
+          <Route exact path="/editStd/:id"   component={DeleteEditStd}/>
+
           {/* Admin dashboard Screen End*/}
 
           {/* Company dashboard Screen*/}

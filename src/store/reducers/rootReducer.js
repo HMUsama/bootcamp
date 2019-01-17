@@ -9,10 +9,12 @@ import createResumeReducerStd from './CreateResumeReducerStd'
 import CreateJobsReducerCp  from './CreateJobsReducerCp'
 
 import UpdateDeleteReducerCp from './Admin/UpdateDeleteReducerCp'
+import UpdateDeleteReducerStd from './Admin/UpdateDeletereducerStd'
 
 const rootReducers  = combineReducers({
 
     updateDeleteJob :      UpdateDeleteReducerCp,
+    updateDeleteResume:   UpdateDeleteReducerStd,
     
     createResumeStd: createResumeReducerStd,
     createJobsCp:    CreateJobsReducerCp,

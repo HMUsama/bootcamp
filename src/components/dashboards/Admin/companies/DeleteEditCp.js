@@ -35,7 +35,6 @@ class DeleteEditCp extends Component {
 // Job Title Industry Number Location Message
    render(){
     //    debugger
-    const { ID } = this.props;
     const { CompanyJob } =this. props;
     if(CompanyJob){
         // console.log("CompanyJob",CompanyJob)

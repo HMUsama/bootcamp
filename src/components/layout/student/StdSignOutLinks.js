@@ -8,6 +8,7 @@ const StdSignedOutLinks = () => {
          <ul className="right">
                  <li><NavLink to='/studentsignin'>Student</NavLink></li>
                  <li><NavLink to='/companieslogin'>Campany</NavLink></li>
+                 <li><NavLink to='/adminsignin'>Admin</NavLink></li>
         </ul>
             </div>
      </ul>

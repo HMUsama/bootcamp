@@ -9,7 +9,7 @@ class StudentsList extends Component {
         const { StudentDetails } = this.props;
     return(
     <div>
-         <h4 className="center white-text text-darken-3">Student List</h4>
+         <h4 className="center black-text text-darken-3">Student List</h4>
             { StudentDetails != undefined ? 
                 <div className="container section project-details">
                 <div>

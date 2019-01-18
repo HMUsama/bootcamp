@@ -5,14 +5,19 @@ import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import Loader from '../Loder'
 import { Link} from 'react-router-dom'
+import { deleteResumeStd } from '../../../../store/actions/admin/UpdateDeleteActionStd'
 
 class StudentDetails extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
         }
+        this.Delete=this.Delete.bind(this);
     }
-
+    Delete(){
+        console.log("ID",this.props.ID)
+        this.props.deleteResumeStd(this.props.ID)
+    }
    render(){
     //    debugger
     const { ID } =this.props;
@@ -32,10 +37,15 @@ class StudentDetails extends Component {
                             </div>
                             <div className="card-action gret lighten-4 black-text">
                             <p>Location:{StudentDetail.location}</p>
+                            <button className="btn waves-effect waves-light left"
+                            onClick={this.Delete}
+                            >Delete
+                            <i className="material-icons right">delete</i>
+                            </button>
                             <Link to={'/editStd/'+ID}>
-                            <button className="btn waves-effect waves-light "
+                            <button className="btn waves-effect waves-light right"
                             >Edit
-                            <i className="material-icons right">send</i>
+                            <i className="material-icons right">edit</i>
                             </button>
                             </Link>
                             </div>
@@ -60,8 +70,13 @@ const mapStateToProps = (state,ownProps) => {
         ID:id
     }
 }
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        deleteResumeStd: (deleteResume) =>dispatch(deleteResumeStd(deleteResume))
+    }
+}
 
-export default compose(connect(mapStateToProps),
+export default compose(connect(mapStateToProps,mapDispatchToProps),
                 firestoreConnect ([
                 {collection: "StudentDetails"}
                 ])

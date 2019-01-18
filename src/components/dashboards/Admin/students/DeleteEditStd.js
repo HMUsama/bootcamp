@@ -63,14 +63,14 @@ class DeleteEditStd extends Component {
             <br/>
                 <center>
                     <Link to={'/dashboardAd'}>
-                    <button className="btn waves-effect " 
+                    <button className="btn waves-effect left" 
                         name="action">Cencel
-                        <i className="material-icons left">send</i>
+                        <i className="material-icons left">close</i>
                     </button>
                     </Link>
-                    <button className="btn waves-effect waves-light " 
-                        type="submit" name="action">Update Now
-                        <i className="material-icons right">send</i>
+                    <button className="btn waves-effect waves-light right" 
+                        type="submit" name="action">Update 
+                        <i className="material-icons right">update</i>
                     </button>
                     <div className="red-text center">
                     {/* {authError ? <p>{authError}</p> : null} */}

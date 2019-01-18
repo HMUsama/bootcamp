@@ -15,3 +15,18 @@ export const updateResumeStd = (ResumeUpdate) =>{
         })
     }
 };
+
+export const deleteResumeStd = (deleteResume) =>{
+    console.log("DDDDD",deleteResume)
+    return (dispatch,getState,{getFirebase, getFirestore }) => {
+        debugger
+        const firebase=getFirebase();
+        const firestore = getFirestore();
+        firestore.collection("StudentDetails").doc(deleteResume).delete()
+        .then(() => {
+            dispatch({ type:'DELETE_STD_DETAILS_SUCCESSFUll',deleteResume })
+        }).catch((err) => {
+            dispatch({ type:'DELETE_STD_DETAILS_ERROR',err });
+        })
+    }
+};

@@ -71,7 +71,6 @@ class JobsDetails extends Component {
 }
 const mapStateToProps = (state,ownProps) => {
     // debugger
-    console.log(" Deatails ownProps",ownProps);
     const id= ownProps.match.params.id;
     const companyJobs= state.firestore.data.companyJobs;
     const companyJob= companyJobs ? companyJobs[id] :null

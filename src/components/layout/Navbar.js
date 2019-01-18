@@ -21,7 +21,7 @@ const Navbar = (props) =>{
     // const link2= company ? <StdSignedInLinks profile={profile}/>:null
     // <StdSignedOutLinks/>
     return(
-        <nav className="nav-wrapper green darken-2">
+        <nav className="nav-wrapper teal darken-2">
         {/* <Link to='/' className="brand-logo left">Campus </Link> */}
        {link1}
         </nav>

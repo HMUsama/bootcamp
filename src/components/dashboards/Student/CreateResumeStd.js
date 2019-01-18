@@ -33,11 +33,11 @@ class CreateResume extends Component {
       return (
         <div className="container">
         <form onSubmit={this.hundleSubmit} className="gray">
-        <h5 className="white-text text-darken-6 center"> Student Detail</h5>
+        <h5 className="black-text text-darken-6 center"> Student Detail</h5>
         <div className="input-field ">
             <i className="material-icons prefix">account_circle</i>
             <input id="name" type="text" onChange={this.hundleChange} />
-            <label for="icon_prefix"> Name</label>
+            <label for="icon_prefix black"> Name</label>
         </div>
         <br/>
         <div className="input-field ">

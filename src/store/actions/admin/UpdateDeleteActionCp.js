@@ -15,3 +15,18 @@ export const updateJobCp = (updateJob) =>{
         })
     }
 };
+
+export const deleteJobCp = (deleteJob) =>{
+    console.log("DDDDD",deleteJob)
+    return (dispatch,getState,{getFirebase, getFirestore }) => {
+        debugger
+        const firebase=getFirebase();
+        const firestore = getFirestore();
+        firestore.collection("companyJobs").doc(deleteJob).delete()
+        .then(() => {
+            dispatch({ type:'DELETE_DETAILS_SUCCESSFUll',deleteJob })
+        }).catch((err) => {
+            dispatch({ type:'DELETE_DETAILS_ERROR',err });
+        })
+    }
+};

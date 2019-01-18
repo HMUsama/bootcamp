@@ -9,7 +9,8 @@ class CreateJobsCp extends Component {
     //     super()
         state={
             jobTitle:"",
-            industry:" ",
+            email:"",
+            companyName:" ",
             number:"",
             location:"",
             message:""
@@ -34,31 +35,38 @@ class CreateJobsCp extends Component {
       return (
         <div className="container">
         <form onSubmit={this.hundleSubmit} className="gray">
-        <h5 className="white-text text-darken-6 center"> Campany Jobs</h5>
+        <h5 className="blak-text text-darken-6 center"> Campany Jobs</h5>
+        
         <div className="input-field ">
             <i className="material-icons prefix">title</i>
             <input id="jobTitle" type="text" onChange={this.hundleChange} />
-            <label for="icon_prefix"> Job Title</label>
+            <label for="icon_prefix black"> Job Title</label>
         </div>
-        <br/>
+        {/* <br/> */}
+        <div className="input-field ">
+            <i className="material-icons prefix">business</i>
+            <input id="companyName" type="text" onChange={this.hundleChange}/>
+            <label for="icon_prefix">Company Name</label>
+        </div>
+        {/* <br/> */}
         <div className="input-field ">
             <i className="material-icons prefix">email</i>
-            <input id="industry" type="text" onChange={this.hundleChange}/>
-            <label for="icon_prefix">Industry</label>
+            <input id="email" type="text" onChange={this.hundleChange}/>
+            <label for="icon_prefix">Email</label>
         </div>
-        <br/>
+        {/* <br/> */}
         <div className="input-field ">
           <i className="material-icons prefix">phone</i>
           <input id="number" type="number" onChange={this.hundleChange}/>
           <label for="icon_telephone">Number</label>
         </div>
-        <br/>
+        {/* <br/> */}
         <div className="input-field ">
           <i className="material-icons prefix">place</i>
           <input id="location" type="text" onChange={this.hundleChange}/>
           <label for="icon_telephone">Location</label>
         </div>
-        <br/>
+        {/* <br/> */}
         <div className="input-field ">
           <i className="material-icons prefix">insert_comment</i>
           <textarea id="message" className="materialize-textarea"

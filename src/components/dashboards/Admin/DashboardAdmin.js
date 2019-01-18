@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import CompaniesList from './companies/CompaniesList'
 import StudentsList from './students/StudentsList'
 
 class DashboardAd extends Component {
     render() {
         const { companyJobs,StudentDetails,authAd} = this.props;
-        if(authAd.uid) return <Redirect to='/adminsignin'/>
+        // if(authAd.uid) return <Redirect to='/adminsignin'/>
 
         return(
           <div className="row">

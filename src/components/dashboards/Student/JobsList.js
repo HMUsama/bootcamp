@@ -29,18 +29,7 @@ const JobsList =({companyJobs})=>{
     if(companyJobs){
     return(
         <div>
-        {
-            companyJobs && companyJobs.map( (jobslist,index) =>{
-                console.log("``````````",jobslist)
-                return(
-                    <div className="project-list sector"key={index}>
-                    <Link to={'/job/'+jobslist.id}>
-                    <JobSummary companyJobs = {companyJobs} key={jobslist.id}/>
-                    </Link>
-                    </div>
-                )
-            })
-        }
+                    <JobSummary companyJobs = {companyJobs} />
         </div>
         )
     } else{
@@ -64,3 +53,24 @@ const JobsList =({companyJobs})=>{
 
 
 export default JobsList
+
+
+
+
+
+
+
+// <div>
+// {
+//      companyJobs.map( (jobslist,index) =>{
+//         console.log("``````````",jobslist)
+//         return(
+//             <div className="project-list sector"key={index}>
+//             <Link to={'/job/'+jobslist.id}>
+//             <JobSummary companyJobs = {companyJobs} key={jobslist.id}/>
+//             </Link>
+//             </div>
+//         )
+//     })
+// }
+// </div>

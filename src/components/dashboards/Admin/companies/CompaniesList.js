@@ -10,7 +10,7 @@ class CompaniesList extends Component {
 
     return(
     <div>
-        <h4 className="center white-text text-darken-3">Companies List</h4>
+        <h4 className="center black-text text-darken-3">Companies List</h4>
         { companyJobs != undefined ? 
         <div className="container section project-details">
             <div>
@@ -21,7 +21,7 @@ class CompaniesList extends Component {
                     <Link to={'/company/'+item.id} key={item.id}>
                         <div className="card z-depth-0 project-summary">
                             <div className="card-content black-text text-darken-3">
-                            <span className="card-title">Name:{item.industry} </span>
+                            <span className="card-title">Name:{item.companyName} </span>
                             <p className="black-text">Job Title:{item.jobTitle}</p>
                             </div>
                         </div>

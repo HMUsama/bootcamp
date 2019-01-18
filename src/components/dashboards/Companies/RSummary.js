@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link} from 'react-router-dom'
 
 // debugger;
 const RSummary = ({Details}) =>{
@@ -10,10 +11,12 @@ const RSummary = ({Details}) =>{
                 // console.log("item",item)
                 return(
                  <div className="card z-depth-0 project-summary"key={index}>
-                    <div className="card-content black-text text-darken-3">
-                     <span className="card-title">{item.email} </span>
-                     <p className="black-text">{item.number}</p>
-                    </div>
+                    <Link to={'/resume/'+item.id} key={item.id}>
+                        <div className="card-content black-text text-darken-3">
+                        <span className="card-title">{item.email} </span>
+                        <p className="black-text">{item.number}</p>
+                        </div>
+                    </Link>
                  </div>
                 )
             })

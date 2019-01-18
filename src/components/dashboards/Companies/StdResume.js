@@ -12,18 +12,17 @@ class StdResume extends Component {
     //     }
     // }
    render(){
-    const { Details } = this.props;
-    // console.log("Details DETAILS 1111",Details)
-        if(Details){
+    const { studentDetail } = this.props;
+        if(studentDetail){
                     return(
                         <div className="container section project-details">
                             <div className="card z-depth-0">
                                 <div>
                                     <div className="card-content">
-                                    <span className="card-title">{Details.id}</span>
-                                   <p>Job Title:{Details}</p>
-                                   <p>Number:{Details.number}</p>
-                                   <p>skills{Details.message}</p>
+                                    <span className="card-title">{studentDetail.name}</span>
+                                   <p>Job Title:{studentDetail.email}</p>
+                                   <p>Number:{studentDetail.number}</p>
+                                   <p>skills{studentDetail.message}</p>
                                     </div>
                                     <div className="card-action gret lighten-4 black-text">
                                     <p>Location:{}</p>
@@ -53,16 +52,12 @@ class StdResume extends Component {
 }
 const mapStateToProps = (state,ownProps) => {
     // debugger
-    console.log("  state",state);
-    // console.log("  ownProps",ownProps);
     const id= ownProps.match.params.id;
-    // console.log("  ID**",id);
-    const Details= state.firestore.data.Details;
-    const Detail= Details ? Details[id] :null
-    // console.log("Details Map",Detail)
+    const studentDetails= state.firestore.data.StudentDetails;
+    const studentDetail= studentDetails ? studentDetails[id] :null
     return{
-        Details:Detail
-        // Details:state
+        // Details:Detail
+        studentDetail:studentDetail
     }
 }
 

@@ -9,7 +9,7 @@ const authReducesAd =( state = initState,action )=>{
         ...state,
         authError:'Login_failed'
     }
-    case "Login_SuccessFull":
+    case "Login_SuccessFull_Admin":
         console.log("Login_SuccesFull**authReduces**")
     return{
         ...state,
@@ -17,6 +17,7 @@ const authReducesAd =( state = initState,action )=>{
     }
     
     case "LogOut_SuccessFull":
+    // this.history.navigate.navigation("/")
     console.log("LogOut_SuccesFull**authReduces**")
     return state;
     

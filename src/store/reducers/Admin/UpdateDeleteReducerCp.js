@@ -16,6 +16,19 @@ const UpdateDeleteReducerCp =( state =initState, action )=>{
             ...state,
             authError:'Error_failed'
         }
+
+        case "DELETE_DETAILS_SUCCESSFUll":
+        console.log("DELETE_DETAILS_SUCCESSFUll**authReduces**",action)
+        return{
+            ...state,
+            authError:null
+        }
+        case "DELETE_DETAILS_ERROR":
+        console.log("DELETE_DETAILS_ERROR**authReduces**")
+        return{
+            ...state,
+            authError:'Error_failed'
+        }
         default:
         return state     
         }

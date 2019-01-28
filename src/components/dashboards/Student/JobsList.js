@@ -24,7 +24,7 @@ import JobSummary from './JobsSummary'
 // }
 
 const JobsList =({companyJobs})=>{
-    console.log("summary in jobs",companyJobs)
+    // console.log("summary in jobs",companyJobs)
     // debugger;
     if(companyJobs){
     return(

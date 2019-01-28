@@ -11,9 +11,9 @@ class Dashboard extends Component {
     render() {
         // debugger
         const { companyJobs,authStd } = this.props;
-        console.log("Dashboard_Std",companyJobs)
-        console.log("authStd",authStd)
-        // if(authStd.uid) return <Redirect to='/dashboardStd'/>
+        // console.log("Dashboard_Std",companyJobs)
+        // console.log("authStd",authStd)
+        if(!authStd.uid) return <Redirect to='/studentsignin'/>
       return (
         <div>
             <Link to={'/studentResume'}>Create Resume </Link>
@@ -24,7 +24,7 @@ class Dashboard extends Component {
   }
 
   const mapStateToProps = (state) => {
-      console.log("Dashboard",state.firestore.ordered);
+    //   console.log("Dashboard",state.firestore.ordered);
       return{
         authStd:   state.firebase.auth,
         companyJobs: state.firestore.ordered.companyJobs

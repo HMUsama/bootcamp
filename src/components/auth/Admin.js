@@ -23,6 +23,7 @@ hundleSubmit=(e)=>{
 
   render() {
     const{authError,authAd} = this.props;
+    console.log("___",authAd.uid)
     if(authAd.uid) return <Redirect to='/dashboardAd'/>
     return (
         <div className="container">

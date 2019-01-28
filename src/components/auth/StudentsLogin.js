@@ -25,8 +25,8 @@ hundleSubmit=(e)=>{
   render() {
     const {authError,authStd,student} = this.props;
     // const check = [...authStd.uid,student ]
-    console.log("StudentLog***")
-    if( authStd.uid ) return <Redirect to='/dashboardStd'/>
+    // console.log("StudentLog***")
+    if(authStd.uid ) return <Redirect to='/dashboardStd'/>
  
     
     return (

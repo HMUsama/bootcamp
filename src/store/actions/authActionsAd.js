@@ -5,7 +5,7 @@ export const adminLognin = (credentails) =>{
             credentails.email,
             credentails.password
         ).then(()=>{
-            dispatch({type:'Login_SuccessFull'});
+            dispatch({type:'Login_SuccessFull_Admin'});
         }).catch((err)=>{
             dispatch({type:'Login_Error',err});
         });

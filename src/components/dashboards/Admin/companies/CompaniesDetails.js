@@ -19,7 +19,7 @@ class CompanyDetails extends Component {
         this.Delete=this.Delete.bind(this);
     }
     Delete(){
-        console.log("ID",this.props.ID)
+        // console.log("ID",this.props.ID)
         this.props.deleteJobCp(this.props.ID)
     }
    render(){

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {signOutAd} from '../../../store/actions/authActionsAd' 
 
 const AdSignedInLinks = (props) => {
-    console.log("std",props)
+    // console.log("std",props)
     return(
      <ul className="right">
         {/* <li><NavLink to='/dashbord'>Dashbord</NavLink></li> */}

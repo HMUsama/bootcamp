@@ -2,7 +2,7 @@ import React from 'react'
 import { Link} from 'react-router-dom'
 
 const JobSummary = ({companyJobs}) =>{
-console.log("Summary",companyJobs)
+// console.log("Summary",companyJobs)
 // debugger;
 if(companyJobs){
     return(

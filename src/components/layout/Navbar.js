@@ -8,16 +8,17 @@ import CpSignedInLinks from './campany/CpSignInLinks'
 import AdSignedOutLinks from './admin/AdSignInLinks'
 import AdSignedInLinks from './admin/AdSignOutLinks'
 import authReducesCp from '../../store/reducers/authReducerCp';
-import { link } from 'fs';
 
 
 
 const Navbar = (props) =>{
     // debugger
+    console.log("navbar",props);
     const { student,company,profile,authStd,authCp } = props;
+    console.log("ID___",authStd);
 
     const link1= authStd.uid ? <StdSignedInLinks profile={profile}/>:<StdSignedOutLinks/>
-    // null
+    // cosnt link= auth.uid =="Student" ?<std>
     // const link2= company ? <StdSignedInLinks profile={profile}/>:null
     // <StdSignedOutLinks/>
     return(
@@ -43,9 +44,3 @@ const mapStateToProps=(state)=>{
 }
 
 export default connect(mapStateToProps)(Navbar);
-
-// export default compose(connect(mapStateToProps),
-//                 firestoreConnect ([
-//                 {collection: "companyJobs"}
-//                 ])
-//                 )(Dashboard)

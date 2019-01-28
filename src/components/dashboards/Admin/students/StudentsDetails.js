@@ -15,7 +15,7 @@ class StudentDetails extends Component {
         this.Delete=this.Delete.bind(this);
     }
     Delete(){
-        console.log("ID",this.props.ID)
+        // console.log("ID",this.props.ID)
         this.props.deleteResumeStd(this.props.ID)
     }
    render(){

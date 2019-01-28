@@ -3,15 +3,14 @@ import { connect } from 'react-redux'
 import {compose } from 'redux'
 import {  firestoreConnect  } from 'react-redux-firebase'
 import { Link} from 'react-router-dom'
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import StdList from './StdList'
 
 class DashboardCp extends Component {
     render() {
         // debugger;
         const { Details,authCp} = this.props;
-        // console.log("auth",authCp)
-        // console.log("Details",Details)
+        if(!authCp.uid) return <Redirect to='/companieslogin'/>
       return (
         <div>
              <Link to={'/createjobs'}>Create Job </Link>
